@@ -1,0 +1,47 @@
+### Get all animals.
+
+GET http://localhost:3000/animals HTTP/1.1
+content-type: application/json
+
+### Create a new animal.
+
+POST http://localhost:3000/animal HTTP/1.1
+content-type: application/json
+
+{
+  "type": "Wolf",
+  "state": "Happy"
+}
+
+### Get all users.
+
+GET http://localhost:3000/users HTTP/1.1
+content-type: application/json
+
+### Create a new user.
+
+POST http://localhost:3000/user HTTP/1.1
+content-type: application/json
+
+{
+  "name": "John",
+  "surname": "Doe",
+  "email": "john@doe.com",
+  "age": 42
+}
+
+### Get all recipes.
+
+GET http://localhost:3000/recipes HTTP/1.1
+content-type: application/json
+
+### Create a new recipe.
+
+POST http://localhost:3000/recipe HTTP/1.1
+content-type: application/json
+
+{
+  "name": "White rice",
+  "ingredient": "rice",
+  "time": 10
+}

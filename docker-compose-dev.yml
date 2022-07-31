@@ -1,0 +1,56 @@
+# Uncomment the volumes to persist the data in your machine.
+
+version: '2.6.1'
+
+services:
+  wolfito:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    image: wolfito
+    container_name: wolfito
+    ports:
+      - '3000:3000'
+    links:
+      - monguito
+      - postgresito
+      - maysita
+    volumes:
+      - .:/home/app
+  monguito:
+    image: mongo
+    container_name: monguito
+    ports:
+      - '27017:27017'
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=timbergus
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    # volumes:
+    #   - mongo-data:/data/db
+  postgresito:
+    image: postgres
+    container_name: postgresito
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=timbergus
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=test
+    # volumes:
+    #   - postgres-data:/var/lib/postgresql/data
+  maysita:
+    image: mysql
+    container_name: maysita
+    ports:
+      - '3306:3306'
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_USER=timbergus
+      - MYSQL_PASSWORD=password
+      - MYSQL_DATABASE=test
+    # volumes:
+    #   - mysql-data:/var/lib/mysql
+# volumes:
+#   mongo-data:
+#   postgres-data:
+#   mysql-data:
